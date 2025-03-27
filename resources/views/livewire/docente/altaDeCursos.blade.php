@@ -245,7 +245,7 @@
                                 <label for="nombre-docente">Docente:</label>
                                 <input type="text" name="nombre_docente" id="nombre-docente" style="position: relative; width: 73.5%; float: right; left: 180px;">
                                 
-                                <label for="curp">CURP:</label>
+                                <label for="curp">RFC:</label>
                                 <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" style="position: relative; width: 73.5%; float: right; left: 180px;" required>
                                 
                                 <label for="departamento">Departamento:</label>

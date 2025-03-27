@@ -66,3 +66,14 @@ Route::get('/cvv', function () {
 })->name('cvv');
 
 
+Route::get('/registro', function () {
+    return view('livewire.principales.registroLogin'); 
+})->name('registro');
+
+
+
+use App\Http\Controllers\DocenteController;
+
+Route::post('/registrar-docente', [DocenteController::class, 'store'])->name('docente.store');
+
+

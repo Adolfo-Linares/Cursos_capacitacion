@@ -1,298 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tecnológico Nacional de México</title>
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tecnologico_Nacional_de_Mexico.svg/800px-Tecnologico_Nacional_de_Mexico.svg.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Estilos del fondo con degradado */
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        /* Estilos del encabezado */
-        .header {
-            background-color: #ffffff;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .header img {
-            position: relative;
-            left: 650px;
-            width: 180px;
-            height: auto;
-        }
-
-        /* Estilos del usuario */
-        .user {
-            display: flex;
-            align-items: center;
-        }
-
-        .user span {
-            margin-right: 15px;
-            font-weight: bold;
-        }
-
-        .user button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 22px;
-            color: #333;
-            margin-left: 10px;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .user button:hover {
-            color: #007bff;
-            transform: scale(1.1);
-        }
-
-        /* Estilos de la barra de navegación */
-        .nav {
-            background-color: #002855;
-            color: white;
+            padding: 0;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
-            gap: 30px;
-        }
-
-        .nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            position: relative;
-            padding: 0 15px;
-            transition: color 0.3s ease;
-        }
-
-        .nav a:hover {
-            color: rgb(133, 132, 132);
-        }
-
-        .nav a:not(:last-child) {
-            border-right: 2px solid white;
-            padding-right: 50px;
-        }
-
-        /* Estilos del pie de página */
-        .footer {
-            background-color: #002855;
-            position: relative;
-            color: rgb(223, 221, 221);
-            padding: 15px;
-            font-size: 20px;
-            text-align: left;
-            line-height: 2;
-            /* Aumenta el espacio entre líneas */
-        }
-
-        .footer p {
-            margin-bottom: 20px;
-            /* Aumenta la separación entre párrafos */
-            font-weight: b;
-            /* Hace las letras delgadas */
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            /* Ocultar el scroll */
+            background: linear-gradient(45deg, #002855, #002855);
             font-family: Arial, sans-serif;
-            /* O cualquier fuente que desees */
         }
 
-        .footer .campus,
-        .footer .map {
-            display: inline-block;
-            vertical-align: top;
-            width: 45%;
-            margin: 10px;
-        }
-
-        .footer .map img {
-            position: relative;
-            left: 200px;
-            width: 200px;
-            height: auto;
-        }
-
-        .footer .social {
-            position: relative;
-            left: -430px;
-            margin-top: 20px;
-        }
-
-        .footer .social a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 25px;
-        }
-
-        .footer .social a:hover {
-            color: #ddd;
-        }
-
-        .footer .map iframe {
-            position: relative;
-            left: 60px;
-            /* Mueve el mapa a la izquierda */
-
-
-        }
-
-        .footer p1 {
-            font-size: 20px;
-            position: relative;
-            left: 100px;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 100px;
+        .login-container {
             width: 100%;
-            /* Hace que ocupe todo el ancho disponible */
-            white-space: nowrap;
-            /* Evita que el texto se divida en varias líneas */
+            max-width: 600px;
+            /* Aumentar el ancho máximo */
+            padding: 20px;
+            /* Reducir padding para evitar scroll */
         }
 
-        .access-container {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        .access-container h2 {
-            font-size: 28px;
-            color: #002855;
-            margin-bottom: 30px;
-        }
-
-        .access-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .access-buttons button {
-            background-color: #002855;
-            color: white;
-            border: none;
+        .login-box {
+            background: #fff;
             padding: 20px 30px;
-            font-size: 18px;
+            /* Reducir espacio interno */
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(146, 131, 225, 0.3);
+            text-align: center;
+            max-height: calc(100vh - 40px);
+            /* Asegúrate de que no supere la altura de la pantalla */
+            overflow: auto;
+            /* Permitir scroll solo dentro de esta caja si es necesario */
+        }
+
+        .login-image {
+            position: relative;
+            top: 10px;
+            width: 350px;
+            /* Reducir ancho de la imagen */
+            height: 100px;
+            /* Reducir alto de la imagen */
+            left: -2%;
+            margin-bottom: 20px;
+            /* Aumentar espacio inferior */
+        }
+
+        /* Estilo para el encabezado */
+        h2 {
+            position: relative;
+            top: -10px;
+            margin-left: 40px;
+            /* Mueve el texto más a la derecha */
+            font-size: 40px;
+            /* Aumentar tamaño de fuente */
+        }
+
+        /* Estilos de los campos de entrada y etiquetas */
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+            /* Aumentar margen inferior */
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            width: 40px;
+            /* Aumentar tamaño del icono */
+            height: 40px;
+            /* Aumentar tamaño del icono */
+            margin-right: 15px;
+            /* Aumentar espacio entre icono y campo de entrada */
+        }
+
+        input {
+            padding-left: 15px;
+            /* Mantener espacio para el texto */
+            width: 90%;
+            padding: 15px;
+            /* Mantener padding interno */
+            font-size: 18px;
+            /* Mantener tamaño de fuente */
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #333;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #002855;
+        }
+
+        label {
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            /* Ajustar más a la izquierda */
+            transform: translateY(-50%);
+            background: #fff;
+            padding: 0 5px;
+            color: hwb(0 67% 33%);
+            font-size: 18px;
+            /* Aumentar tamaño de fuente */
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        input:focus+label,
+        input:not(:placeholder-shown)+label {
+            top: -5px;
+            /* Ajustar para más separación */
+            font-size: 14px;
+            /* Aumentar tamaño de fuente */
+            color: #002855;
+        }
+
+        .show-password {
+            position: absolute;
+            left: 90%;
+            /* Cambiado para más separación */
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            width: 30px;
+            /* Reducir tamaño del botón */
+            height: 30px;
+            /* Reducir tamaño del botón */
+            font-size: 18px;
+            /* Reducir tamaño de fuente */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .access-buttons button:hover {
-            background-color: #004aad;
-            transform: scale(1.05);
+        /* Botón de ingreso */
+        button {
+            position: relative;
+            left: 3%;
+            width: 60%;
+            padding: 10px;
+            /* Reducir padding */
+            font-size: 16px;
+            /* Reducir tamaño de fuente */
+            background-color: rgb(31, 60, 115);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-
-        /* Estilos responsivos */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer .social a {
-                font-size: 18px;
-            }
+        button:hover {
+            background-color: #002855;
         }
 
-        @media (max-width: 1024px) {
+        /* Estilo del mensaje de error */
+        #error-message {
+            position: relative;
+            color: red;
+            left: -0%;
+            display: none;
+            /* Oculto por defecto */
+            margin-top: 20px;
+            /* Reducir margen superior */
+            white-space: nowrap;
+            /* Evita el salto de línea */
+        }
 
-            .footer .campus,
-            .footer .map {
-                width: 100%;
-                display: block;
-                text-align: center;
-                margin: 10px 0;
+        /* Adaptabilidad */
+        @media (max-width: 600px) {
+            .login-box {
+                padding: 20px 30px;
+                /* Reducir espacio en pantallas más pequeñas */
             }
 
-            .footer .map img {
-                width: 90%;
-                margin: 0 auto;
+            .login-image {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
+
 </head>
-
 <body>
-    <div class="header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tecnologico_Nacional_de_Mexico.svg/800px-Tecnologico_Nacional_de_Mexico.svg.png"
-            alt="Logo TecNM" />
-        <div class="user">
-            <span>Inicio</span>
-            <button class="user-btn"><i class="fas fa-user"></i></button>
-            <button class="btn-notificaciones"><i class="fas fa-bell"></i></button>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tecnologico_Nacional_de_Mexico.svg/800px-Tecnologico_Nacional_de_Mexico.svg.png" alt="Logo" class="login-image">
+            <h2>Bienvenido</h2>
+            <form id="loginForm">
+                <!-- Campo Usuario con icono minimalista -->
+                <div class="input-group">
+                    <img src="https://img.icons8.com/ios/50/user--v1.png" class="input-icon" alt="Usuario">
+                    <input type="text" id="username" placeholder=" " required>
+                    <label for="username">Usuario</label>
+                </div>
+
+                <!-- Campo Contraseña con icono minimalista -->
+                <div class="input-group">
+                    <img src="https://img.icons8.com/ios/50/lock--v1.png" class="input-icon" alt="Contraseña">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Contraseña</label>
+                    <button type="button" class="show-password" onclick="togglePassword()">👁️</button>
+                </div>
+
+                <!-- Mensaje de error -->
+                <p id="error-message" style="color: red; display: none;"></p>
+
+                <!-- Botones de acción -->
+                <div class="button-group">
+                    <button type="submit" class="login-btn">Iniciar Sesión</button>
+                    <button type="button" class="register-btn" onclick="location.href='{{ route('registro') }}'">Registrarse</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <div class="nav">
-        <a href="principal.html">INICIO</a>
-        <a href="#">CURSOS</a>
-        <a href="#">CONSTANCIAS</a>
-        <a href="#">EVALUACIONES</a>
-    </div>
+    <script>
+        // Inhabilitar las flechas de navegación del navegador
+        function preventNavigation() {
+            history.pushState(null, null, window.location.href);
+            window.addEventListener('popstate', function (event) {
+                history.pushState(null, null, window.location.href);
+            });
+        }
 
-<!-- Selección de tipo de acceso -->
-<div class="access-container">
-    <h2>Seleccione su tipo de acceso</h2>
-    <div class="access-buttons">
-        <button onclick="location.href='{{ route('desarrollo.academico') }}'">Desarrollo Académico</button>
-        <button onclick="location.href='{{ route('docente.principal') }}'">Docente</button>
-        <button onclick="location.href='{{ route('jefe.departamento') }}'">Jefe de Departamento</button>
-        <button onclick="location.href='{{ route('crc.cursos') }}'">CRC</button>
-    </div>
-</div>
+        // Llamar a la función al cargar la página
+        window.onload = function () {
+            preventNavigation();
+        };
 
+        // Manejar el envío del formulario
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar el envío del formulario
 
+            // Lógica de autenticación (simulada)
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message"); // Seleccionar el mensaje de error
 
-    <div class="footer">
-        <div class="campus">
-            <p><strong>Campus II</strong></p>
-            <p>Avenida Tecnológico #1500, Col. Lomas de Santiaguito, Morelia, Mich. C.P. 58120</p>
-            <p><strong>Campus II</strong></p>
-            <p>Av. Tecnológico #1500, Col. Lomas de Santiaguito, Morelia, Mich. C.P. 58120</p>
-            <p>Email: difusion@itmorelia.edu.mx </p>
-            <p>Teléfono: +52 (443) 312 1570</p>
+            if (username === "adolfo" && password === "1234") {
+                localStorage.setItem('userSession', username); // Guardar datos de sesión
+                window.location.href = "categorias.html"; // Redirige a otra página
+            } else {
+                errorMessage.textContent = "Nombre de usuario o contraseña incorrectos."; // Mostrar mensaje de error
+                errorMessage.style.display = "block"; // Asegurar que el mensaje sea visible
+            }
+        });
 
-        </div>
-        <div class="map">
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.392045448461!2d-101.1864507!3d19.700723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0e4b1c9e8c1b%3A0x75db5f1e7e5bb5c2!2sInstituto%20Tecnol%C3%B3gico%20de%20Morelia!5e0!3m2!1ses!2smx!4v1712356789012"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+        // Función para mostrar/ocultar la contraseña
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            passwordField.type = (passwordField.type === "password") ? "text" : "password";
+        }
+    </script>
 
-            <div class="social">
-                <a href="https://www.morelia.tecnm.mx/#/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://x.com/itmoficial?ref_src=twsrc%5Etfw" target="_blank"><i
-                        class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/tecnm_itmorelia/" target="_blank"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <div class="footer">
-                    <p1>&copy; 2024 Tecnológico Nacional de México. Todos los derechos reservados.</p1>
-                </div>W
+    <style>
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
 
+        .login-btn, .register-btn {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .register-btn {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+
+        .register-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </body>
-
-</html>
