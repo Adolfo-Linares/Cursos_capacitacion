@@ -71,9 +71,8 @@ Route::get('/registro', function () {
 })->name('registro');
 
 
-
 use App\Http\Controllers\DocenteController;
 
-Route::post('/registrar-docente', [DocenteController::class, 'store'])->name('docente.store');
-
+Route::get('/docente/create', [DocenteController::class, 'showForm'])->name('docente.create');
+Route::post('/docente', [DocenteController::class, 'store'])->name('docente.store');
 

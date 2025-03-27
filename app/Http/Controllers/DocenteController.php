@@ -2,31 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Docente;
+use Illuminate\Http\Request;
 
 class DocenteController extends Controller
 {
+    public function showForm()
+    {
+        return view('docentes.form');
+    }
+
     public function store(Request $request)
     {
-        // Validación de datos
+        // Validar los datos del formulario
         $request->validate([
-            'nombre_docente' => 'required|string|max:100',
+            'nombre_docente' => 'required|string|max:255',
             'curp' => 'required|string|size:18|unique:docentes,curp',
-            'departamento' => 'required|string|max:100',
-            'telefono' => 'required|digits:10',
+            'departamento' => 'required|string|max:255',
+            'telefono' => 'required|string|size:10',
             'email' => 'required|email|unique:docentes,email',
         ]);
 
-        // Insertar en la base de datos
-        Docente::create([
-            'nombre' => $request->nombre_docente,
-            'curp' => $request->curp,
-            'departamento' => $request->departamento,
-            'telefono' => $request->telefono,
-            'email' => $request->email,
-        ]);
+        // Crear un nuevo docente
+        Docente::create($request->all());
 
-        return back()->with('success', 'Docente registrado correctamente.');
+        // Redirigir con un mensaje de éxito
+        return redirect()->route('home')->with('success', 'Docente registrado exitosamente');
     }
 }
+

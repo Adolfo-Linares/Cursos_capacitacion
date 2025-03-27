@@ -141,50 +141,50 @@
             <h2>FORMULARIO DE REGISTRO</h2>
 
             <!-- FORMULARIO UNIFICADO -->
-            <form action="{{ route('docente.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+<form action="{{ route('docente.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-                <p style="text-align: center;">
-                    Instituto Tecnológico de Morelia.
-                </p>
+    <p style="text-align: center;">
+        Instituto Tecnológico de Morelia.
+    </p>
 
-                <!-- PRIMERA SECCIÓN -->
-                <fieldset style="border: 2px solid #0000005c; position:relative; top:20px; left:25px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
-                    <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">
-                        Datos del Docente
-                    </legend>
+    <!-- PRIMERA SECCIÓN -->
+    <fieldset style="border: 2px solid #0000005c; position:relative; top:20px; left:25px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
+        <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">
+            Datos del Docente
+        </legend>
 
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <label for="nombre-docente">Docente:</label>
-                        <input type="text" name="nombre_docente" id="nombre-docente" required
-                            style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <label for="nombre-docente">Docente:</label>
+            <input type="text" name="nombre_docente" id="nombre-docente" required
+            style="position: relative; width: 73.5%; float: right; left: 150px;">
 
-                        <label for="curp">CURP:</label>
-                        <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required
-                            style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="curp">CURP:</label>
+            <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required
+            style="position: relative; width: 73.5%; float: right; left: 150px;">
 
-                        <label for="departamento">Departamento:</label>
-                        <input type="text" name="departamento" id="departamento" required
-                            style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="departamento">Departamento:</label>
+            <input type="text" name="departamento" id="departamento" required
+            style="position: relative; width: 73.5%; float: right; left: 150px;">
 
-                        <label for="telefono">Teléfono:</label>
-                        <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" inputmode="numeric" required
-                            style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" inputmode="numeric" required
+            style="position: relative; width: 73.5%; float: right; left: 150px;">
 
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" id="email" required
-                            style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-                    </div>
-                </fieldset>
-
-                <div class="finalize-button" style="margin-top: 40px; text-align: center;">
-                    <button type="submit"
-                        style="padding: 10px 20px; font-size: 16px; border-radius: 5px; background-color: #003366; color: white; border: none; cursor: pointer;">
-                        Registrarse
-                    </button>
-                </div>
-            </form>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required
+            style="position: relative; width: 73.5%; float: right; left: 150px;">
         </div>
+    </fieldset>
+
+    <div class="finalize-button" style="margin-top: 40px; text-align: center;">
+        <button type="submit" 
+        style="padding: 10px 20px; font-size: 16px; border-radius: 5px; background-color: #003366; color: white; border: none; cursor: pointer;">
+        Registrarse
+        </button>
+    </div>
+</form>
+ </div>
     </div>
 </body>
 
