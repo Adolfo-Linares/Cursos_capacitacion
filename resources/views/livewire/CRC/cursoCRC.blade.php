@@ -14,8 +14,8 @@
             font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
         }
+/*ESTE COMENTARIO LO PUSO KATIA JUAREZ ARIAS*/
 
-        /* Estilos del encabezado */
         .header {
             background-color: #ffffff;
             padding: 15px 40px;
@@ -33,7 +33,7 @@
             height: auto;
         }
 
-        /* Estilos del usuario */
+
         .user {
             display: flex;
             align-items: center;
@@ -59,7 +59,7 @@
             transform: scale(1.1);
         }
 
-        /* Estilos de la barra de navegación */
+
         .nav {
             background-color: #002855;
             color: white;
@@ -92,13 +92,13 @@
             position: relative;
             left: 350px;
             width: 800px;
-            /* Ampliado para mayor espacio */
+
             background: white;
             padding: 30px;
-            /* Espaciado mayor */
+
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            /* Sombra más pronunciada */
+
         }
 
         /* Estilos del encabezado del curso */
@@ -301,7 +301,7 @@
         <a href="{{ route('home') }}">INICIO</a>
         <a href="{{ route('desarrollo.crc') }}">CURSOS</a>
     </div>
-    
+
     <div class="curso-container">
         <div class="curso-header">FUNDAMENTOS DE ZABBIX</div>
         <div class="curso-info">
@@ -316,7 +316,7 @@
             <button class="boton rechazar" onclick="location.href='rechazado.html'">✖ RECHAZAR</button>
             <button class="boton sugerir" onclick="mostrarCuadroSugerencias()">⚡ SUGERIR CAMBIOS</button>
             <button class="boton salir" onclick="location.href='publicacionDeCursosCRC'">➜ SALIR</button>
-        </div>        
+        </div>
     </div>
 
     <!-- Cuadro de sugerencias oculto inicialmente -->
@@ -338,27 +338,27 @@
     function mostrarCuadroSugerencias() {
         document.getElementById('cuadroSugerencias').style.display = 'flex';
     }
-    
+
     function cerrarCuadroSugerencias() {
         document.getElementById('cuadroSugerencias').style.display = 'none';
     }
-    
+
     function guardarSugerencia() {
         const texto = document.getElementById('textoSugerencia').value;
         if (texto.trim() === '') {
             alert('Por favor, escribe una sugerencia antes de guardar.');
             return;
         }
-    
+
         // Aquí puedes guardar las sugerencias como desees
         // Por ejemplo, en localStorage o enviarlas a un servidor
-    
+
         alert('Sugerencia guardada: ' + texto);
-    
+
         // Limpiar y cerrar el cuadro
         document.getElementById('textoSugerencia').value = '';
         cerrarCuadroSugerencias();
-    }    
+    }
 </script>
 
 </html>
