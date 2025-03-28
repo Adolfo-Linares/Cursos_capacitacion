@@ -76,3 +76,12 @@ use App\Http\Controllers\DocenteController;
 Route::get('/docente/create', [DocenteController::class, 'showForm'])->name('docente.create');
 Route::post('/docente', [DocenteController::class, 'store'])->name('docente.store');
 
+use App\Http\Controllers\AuthController;
+
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+
+use App\Http\Controllers\AltaDeCursosController;
+
+Route::post('/altaDeCursos', [AltaDeCursosController::class, 'store'])->name('altaDeCursos');

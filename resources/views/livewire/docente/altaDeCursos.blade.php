@@ -213,7 +213,8 @@
             <h2>ALTA DE CURSOS</h2>
 
             <!-- FORMULARIO UNIFICADO AQUÍ -->
-            <form action="altaDeCursos.php" method="POST">
+            <form action="{{ route('altaDeCursos') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <p style="text-align: center; font-weight: bold;">
                     FICHA TÉCNICA DEL SERVICIO DE ACTUALIZACION PROFESIONAL Y FORMACIÓN DOCENTE<br>
                 </p>
@@ -266,24 +267,21 @@
         <p>Nombre y Firma del Facilitador(a).</p>
         <input type="file" accept="image/*" onchange="mostrarFirma(event, 'firmaFacilitador')">
     </div>
-    <div>
-        <img id="firmaJefe" class="firma-imagen" alt="Firma del Jefe de Desarrollo Académico">
-        <input type="text" placeholder="Nombre del Jefe de Desarrollo Académico" class="nombre-input">
-        <p>Nombre y Firma del Jefe(a) de Desarrollo Académico.</p>
-        <input type="file" accept="image/*" onchange="mostrarFirma(event, 'firmaJefe')">
-    </div>
 </div>
 <div class="finalize-button">
     <button onclick="window.location.href='{{ route('cvv') }}'">Siguiente</button>
 </div>
-
+</form>
 
 
 <!-- Estilos -->
 <style>
     .signature {
         display: flex;
-        justify-content: space-around;
+        left: 230px;
+        position: relative;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
         margin: 20px 0;
     }
     .signature div {
@@ -298,17 +296,16 @@
         margin-bottom: 5px;
     }
     .nombre-input {
-    margin-bottom: 2px;
-    padding: 5px;
-    width: 90%;
-    text-align: center;
-    border: 2px solid rgb(255, 255, 255); /* Contorno rojo */
-    outline: none; /* Evitar borde extra al hacer clic */
-    font-size: 16px;
-    background-color: #ffffff; /* Color de fondo opcional */
-    border-radius: 5px; /* Bordes redondeados opcionales */
-}
-
+        margin-bottom: 2px;
+        padding: 5px;
+        width: 90%;
+        text-align: center;
+        border: 2px solid rgb(255, 255, 255); /* Contorno blanco */
+        outline: none; /* Evitar borde extra al hacer clic */
+        font-size: 16px;
+        background-color: #ffffff; /* Color de fondo opcional */
+        border-radius: 5px; /* Bordes redondeados opcionales */
+    }
 </style>
 
 <!-- Script -->

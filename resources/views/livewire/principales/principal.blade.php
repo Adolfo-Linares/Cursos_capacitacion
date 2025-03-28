@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
@@ -203,71 +205,73 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Tecnologico_Nacional_de_Mexico.svg/800px-Tecnologico_Nacional_de_Mexico.svg.png" alt="Logo" class="login-image">
             <h2>Bienvenido</h2>
             <form id="loginForm">
-                <!-- Campo Usuario con icono minimalista -->
-                <div class="input-group">
-                    <img src="https://img.icons8.com/ios/50/user--v1.png" class="input-icon" alt="Usuario">
-                    <input type="text" id="username" placeholder=" " required>
-                    <label for="username">Usuario</label>
-                </div>
-
-                <!-- Campo Contraseña con icono minimalista -->
-                <div class="input-group">
-                    <img src="https://img.icons8.com/ios/50/lock--v1.png" class="input-icon" alt="Contraseña">
-                    <input type="password" id="password" placeholder=" " required>
-                    <label for="password">Contraseña</label>
-                    <button type="button" class="show-password" onclick="togglePassword()">👁️</button>
-                </div>
-
-                <!-- Mensaje de error -->
-                <p id="error-message" style="color: red; display: none;"></p>
-
-                <!-- Botones de acción -->
-                <div class="button-group">
-                    <button type="submit" class="login-btn">Iniciar Sesión</button>
-                    <button type="button" class="register-btn" onclick="location.href='{{ route('registro') }}'">Registrarse</button>
-                </div>
-            </form>
-        </div>
+           <!-- Agrega un ID al formulario -->
+<form id="loginForm">
+    <!-- Campo Usuario -->
+    <div class="input-group">
+        <img src="https://img.icons8.com/ios/50/user--v1.png" class="input-icon" alt="Usuario">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Correo Electrónico</label>
     </div>
 
-    <script>
-        // Inhabilitar las flechas de navegación del navegador
-        function preventNavigation() {
-            history.pushState(null, null, window.location.href);
-            window.addEventListener('popstate', function (event) {
-                history.pushState(null, null, window.location.href);
-            });
-        }
+    <!-- Campo Contraseña -->
+    <div class="input-group">
+        <img src="https://img.icons8.com/ios/50/lock--v1.png" class="input-icon" alt="Contraseña">
+        <input type="password" id="password" placeholder=" " required>
+        <label for="password">Contraseña</label>
+        <button type="button" class="show-password" onclick="togglePassword()">👁️</button>
+    </div>
 
-        // Llamar a la función al cargar la página
-        window.onload = function () {
-            preventNavigation();
-        };
+    <!-- Mensaje de error -->
+    <p id="error-message" style="color: red; display: none;"></p>
 
-        // Manejar el envío del formulario
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Evitar el envío del formulario
+    <!-- Botón de inicio de sesión -->
+    <div class="button-group">
+        <button type="submit" class="login-btn">Iniciar Sesión</button>
+                            <button type="button" class="register-btn" onclick="location.href='{{ route('registro') }}'">Registrarse</button>
 
-            // Lógica de autenticación (simulada)
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            var errorMessage = document.getElementById("error-message"); // Seleccionar el mensaje de error
+    </div>
+</form>
 
-            if (username === "adolfo" && password === "1234") {
-                localStorage.setItem('userSession', username); // Guardar datos de sesión
-                window.location.href = "categorias.html"; // Redirige a otra página
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Evitar el envío tradicional del formulario
+
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var errorMessage = document.getElementById("error-message");
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ email: email, password: password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirigir a la URL proporcionada por el backend
+                window.location.href = data.redirect;
             } else {
-                errorMessage.textContent = "Nombre de usuario o contraseña incorrectos."; // Mostrar mensaje de error
-                errorMessage.style.display = "block"; // Asegurar que el mensaje sea visible
+                // Mostrar mensaje de error
+                errorMessage.textContent = data.message;
+                errorMessage.style.display = "block";
             }
+        })
+        .catch(error => {
+            console.error("Error en la autenticación:", error);
         });
+    });
 
-        // Función para mostrar/ocultar la contraseña
-        function togglePassword() {
-            var passwordField = document.getElementById("password");
-            passwordField.type = (passwordField.type === "password") ? "text" : "password";
-        }
-    </script>
+    // Función para mostrar/ocultar la contraseña
+    function togglePassword() {
+        var passwordField = document.getElementById("password");
+        passwordField.type = (passwordField.type === "password") ? "text" : "password";
+    }
+</script>
+
 
     <style>
         .button-group {
