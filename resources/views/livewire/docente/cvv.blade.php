@@ -214,98 +214,83 @@
         <div class="form-section">
             <h2>FORMULARIO CVV</h2>
 
-          <!-- FORMULARIO UNIFICADO AQUÍ -->
-<form action="datosDocente.php" method="POST" enctype="multipart/form-data">
-    <p style="text-align: center;">
-        Instituto Tecnológico de Morelia.
-    </p>
-    <!-- PRIMERA SECCIÓN -->
-    <fieldset style="border: 2px solid #0000005c; position:relative; top:20px;left:25px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
-        <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Datos del Docente</legend>
-    
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-            <label for="nombre-docente">Docente:</label>
-            <input type="text" name="nombre_docente" id="nombre-docente" style="width: 520px; left:150px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+            <form action="{{ route('cvv.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <p style="text-align: center;">Instituto Tecnológico de Morelia.</p>
             
-            <label for="curp">CURP:</label>
-            <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required 
-            style="width: 520px; left:150px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            
-            <label for="departamento">Departamento:</label>
-            <input type="text" name="departamento" id="departamento" 
-            style="width: 520px; left:150px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            
-            <label for="telefono">Teléfono:</label>
-            <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" inputmode="numeric" required 
-            style="width: 520px; left:150px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" 
-            style="width: 520px; left:150px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-        </div>
-    </fieldset>
-
-
-        <!-- SEGUNDA SECCIÓN -->
-        <fieldset style="border: 2px solid #0000005c; position:relative; left:25px; padding: 20px; top:40px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
-            <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Formación Académica</legend>
-        
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <label for="nombre-docente">Formación Académica:</label>
-                <input type="text" name="nombre_docente" id="nombre-docente" style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                <!-- PRIMERA SECCIÓN -->
+                <fieldset style="border: 2px solid #0000005c; position:relative; top:20px; left:25px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
+                    <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Datos del Docente</legend>
                 
-                <label for="curp">Nivel de Estudios:</label>
-                <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required 
-                style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-
-                <label for="departamento">Institución:</label>
-                <input type="text" name="departamento" id="departamento" 
-style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-
-                <label for="telefono">Año de Graduación:</label>
-                <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" inputmode="numeric" required 
-style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">                
-            </div>
-        </fieldset>
-    
-        
-
-            <!-- TERCERA SECCIÓN -->
-    <fieldset style="border: 2px solid #0000005c; position:relative; left:25px; top:60px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
-        <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Experiencia Docente</legend>
-    
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-            <label for="nombre-docente">Institución:</label>
-            <input type="text" name="nombre_docente" id="nombre-docente" style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-            
-            <label for="curp">Materias Impartidas:</label>
-            <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required 
-            style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-
-            <label for="departamento">Años de Experiencia:</label>
-            <input type="text" name="departamento" id="departamento" 
-style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">              </div>
-    </fieldset>
-    
-
-
-        <!-- CUARTA SECCIÓN -->
-        <fieldset style="border: 2px solid #0000005c; position:relative; left:25px; top:80px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
-            <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Habilidades y Certificaciones</legend>
-        
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <label for="nombre-docente">Habilidades:</label>
-                <input type="text" name="nombre_docente" id="nombre-docente" style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-                
-
-                <label for="nombre-docente">Certificaciones:</label>
-                <input type="text" name="nombre_docente" id="nombre-docente" style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
-                
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="nombre_docente">Docente:</label>
+                        <input type="text" name="nombre_docente" id="nombre_docente" style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="curp">CURP:</label>
+                        <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="departamento">Departamento:</label>
+                        <input type="text" name="departamento" id="departamento" style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" inputmode="numeric" required style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" style="width: 520px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
                 </fieldset>
-    
-        
-
-
+            
+                <!-- SEGUNDA SECCIÓN -->
+                <fieldset style="border: 2px solid #0000005c; position:relative; left:25px; padding: 20px; top:40px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
+                    <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Formación Académica</legend>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="formacion_academica">Formación Académica:</label>
+                        <input type="text" name="formacion_academica" id="formacion_academica" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="nivel_estudios">Nivel de Estudios:</label>
+                        <input type="text" name="nivel_estudios" id="nivel_estudios" required style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="institucion_academica">Institución:</label>
+                        <input type="text" name="institucion_academica" id="institucion_academica" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="ano_graduacion">Año de Graduación:</label>
+                        <input type="text" name="ano_graduacion" id="ano_graduacion" maxlength="4" pattern="\d{4}" required style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+                </fieldset>
+            
+                <!-- TERCERA SECCIÓN -->
+                <fieldset style="border: 2px solid #0000005c; position:relative; left:25px; top:60px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
+                    <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Experiencia Docente</legend>
+                
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="institucion_docente">Institución:</label>
+                        <input type="text" name="institucion_docente" id="institucion_docente" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="materias_impartidas">Materias Impartidas:</label>
+                        <input type="text" name="materias_impartidas" id="materias_impartidas" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="anos_experiencia">Años de Experiencia:</label>
+                        <input type="text" name="anos_experiencia" id="anos_experiencia" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+                </fieldset>
+            
+                <!-- CUARTA SECCIÓN -->
+                <fieldset style="border: 2px solid #0000005c; position:relative; left:25px; top:80px; padding: 20px; border-radius: 15px; width: 700px; background-color: #f9f9f9;">
+                    <legend style="font-weight: bold; padding: 5px 10px; border-radius: 10px; background-color: #fff; border: 1px solid #000;">Habilidades y Certificaciones</legend>
+                
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="habilidades">Habilidades:</label>
+                        <input type="text" name="habilidades" id="habilidades" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <label for="certificaciones">Certificaciones:</label>
+                        <input type="text" name="certificaciones" id="certificaciones" style="width: 470px; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+                </fieldset>
+            
+                <button type="submit" style="margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">Guardar</button>
+            </form>
+            
     
     
 
@@ -321,3 +306,4 @@ style="width: 470px; left:200px; top:-8px; position:relative; padding: 8px; bord
 <div class="footer"></div>
 
 </body>
+  

@@ -211,8 +211,6 @@
     <div class="container">
         <div class="form-section">
             <h2>ALTA DE CURSOS</h2>
-
-            <!-- FORMULARIO UNIFICADO AQUÍ -->
             <form action="{{ route('altaDeCursos') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <p style="text-align: center; font-weight: bold;">
@@ -221,57 +219,55 @@
                 <p style="text-align: center;">
                     Instituto Tecnológico o Centro o Unidad: Instituto Tecnológico de Morelia.
                 </p>
-
+            
                 <!-- PRIMERA SECCIÓN -->
                 <label for="nombre-servicio">Nombre del Curso:</label>
-                <input type="text" name="nombre-servicio" id="nombre-servicio"
-                    style="position: relative; width: 73.5%; float: right; left: 180px;">
-                    <label for="duracion-curso">Objetivo General:</label>
-                    <input type="text" name="duracion-curso" id="duracion-curso"
-                        style="position: relative; width: 64%; float: right; left: 258px;">
-                        <label for="duracion-curso">Duración en horas del curso:</label>
-                        <input type="text" name="duracion-curso" id="duracion-curso"
-                            style="position: relative; width: 64%; float: right; left: 258px;">
-                            <label for="duracion-curso">Horario:</label>
-                            <input type="text" name="duracion-curso" id="duracion-curso"
-                                style="position: relative; width: 64%; float: right; left: 258px;">
-                                <label for="duracion-curso">Días:</label>
-                                <input type="text" name="duracion-curso" id="duracion-curso"
-                                    style="position: relative; width: 64%; float: right; left: 258px;">
-              
+                <input type="text" name="nombre_servicio" id="nombre-servicio">
+            
+                <label for="duracion-curso">Objetivo General:</label>
+                <input type="text" name="objetivo" id="duracion-curso">
+            
+                <label for="duracion-curso">Duración en horas del curso:</label>
+                <input type="text" name="duracion" id="duracion-curso">
+            
+                <label for="duracion-curso">Horario:</label>
+                <input type="text" name="horario" id="duracion-curso">
+            
+                <label for="duracion-curso">Días:</label>
+                <input type="text" name="dias" id="duracion-curso">
+            
                 <!-- SEGUNDA SECCIÓN -->
-               
                 <h2>DATOS DEL DOCENTE</h2>
+                <label for="nombre-docente">Docente:</label>
+                <input type="text" name="nombre_docente" id="nombre-docente">
+                
+                <label for="curp">RFC:</label>
+                <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" required>
+                
+                <label for="departamento">Departamento:</label>
+                <input type="text" name="departamento" id="departamento">
+            
+                <label for="telefono">Teléfono:</label>
+                <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" required>
+            
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            
+                <!-- Firma y botón -->
+                <div class="signature">
+                    <div>
+                        <img id="firmaFacilitador" class="firma-imagen" alt="Firma del Facilitador">
+                        <input type="text" placeholder="Nombre del Facilitador" class="nombre-input">
+                        <p>Nombre y Firma del Facilitador(a).</p>
+                        <input type="file" accept="image/*" onchange="mostrarFirma(event, 'firmaFacilitador')" name="firma" id="firma">
 
-                                <label for="nombre-docente">Docente:</label>
-                                <input type="text" name="nombre_docente" id="nombre-docente" style="position: relative; width: 73.5%; float: right; left: 180px;">
-                                
-                                <label for="curp">RFC:</label>
-                                <input type="text" name="curp" id="curp" maxlength="18" pattern="[A-Z0-9]{18}" style="position: relative; width: 73.5%; float: right; left: 180px;" required>
-                                
-                                <label for="departamento">Departamento:</label>
-                                <input type="text" name="departamento" id="departamento" style="position: relative; width: 73.5%; float: right; left: 180px;">
-                                
-                                <label for="telefono">Teléfono:</label>
-                                <input type="text" name="telefono" id="telefono" maxlength="10" pattern="\d{10}" inputmode="numeric" style="position: relative; width: 73.5%; float: right; left: 180px;" required>
-                                
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" id="email" style="position: relative; width: 73.5%; float: right; left: 180px;">
-                                
-                             
-  <!-- Firmas y botón -->
-<div class="signature">
-    <div>
-        <img id="firmaFacilitador" class="firma-imagen" alt="Firma del Facilitador">
-        <input type="text" placeholder="Nombre del Facilitador" class="nombre-input">
-        <p>Nombre y Firma del Facilitador(a).</p>
-        <input type="file" accept="image/*" onchange="mostrarFirma(event, 'firmaFacilitador')">
-    </div>
-</div>
-<div class="finalize-button">
-    <button onclick="window.location.href='{{ route('cvv') }}'">Siguiente</button>
-</div>
-</form>
+                    </div>
+                </div>
+                <div class="finalize-button">
+                    <button type="submit">Siguiente</button>
+                </div>
+            </form>
+            
 
 
 <!-- Estilos -->
@@ -308,19 +304,3 @@
     }
 </style>
 
-<!-- Script -->
-<script>
-    function mostrarFirma(event, id) {
-        const input = event.target;
-        const imagen = document.getElementById(id);
-
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                imagen.src = e.target.result;
-                imagen.style.display = "block";
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>

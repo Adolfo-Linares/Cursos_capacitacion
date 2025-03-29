@@ -52,9 +52,11 @@ Route::get('/inscripcion', function () {
     return view('livewire.docente.inscripcionDeCursos'); 
 })->name('docente.inscripcion');
 
+
 Route::get('/alta', function () {
     return view('livewire.docente.altaDeCursos'); 
-})->name('docente.alta');
+})->name('altaDeCursos');
+
 
 Route::get('/constancias-desarrollo-academico', function () {
     return view('livewire.desarrolloAcademico.contanciasDeCursosDesarrolloAcademico'); 
@@ -81,7 +83,18 @@ use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+use App\Http\Controllers\CursoController;
 
-use App\Http\Controllers\AltaDeCursosController;
+Route::get('/altaDeCursos', function () {
+    return view('livewire.docente.altaDeCursos');
+});
 
-Route::post('/altaDeCursos', [AltaDeCursosController::class, 'store'])->name('altaDeCursos');
+
+Route::post('/altaDeCursos', [CursoController::class, 'altaDeCursos'])->name('altaDeCursos');
+
+
+
+use App\Http\Controllers\CvController;
+
+
+Route::post('/cvv/store', [CvController::class, 'store'])->name('cvv.store');

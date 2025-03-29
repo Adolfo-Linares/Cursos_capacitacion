@@ -347,7 +347,7 @@
             <div class="access-buttons">
                 <button onclick="location.href='{{ route('docente.cursosRechazados') }}'">Cursos Rechazados</button>
                 <button onclick="location.href='{{ route('docente.inscripcion') }}'">Inscribirse a un Curso</button>
-                <button onclick="location.href='{{ route('docente.alta') }}'">Dar de alta un Curso</button>
+                <button onclick="location.href='{{ route('altaDeCursos') }}'">Dar de alta un Curso</button>
             </div>
         </div>
     <div class="credential">
